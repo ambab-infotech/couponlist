@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Managing Guest Cart Coupons List -->
+    <route url="/V1/guest-carts/:cartId/coupons-list" method="GET">
+        <service class="Ambab\CouponList\Api\GuestCouponListInterface" method="get"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing Cart Coupons List -->
+    <route url="/V1/carts/:cartId/coupons-list" method="GET">
+        <service class="Ambab\CouponList\Api\CouponListInterface" method="get"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+</routes>

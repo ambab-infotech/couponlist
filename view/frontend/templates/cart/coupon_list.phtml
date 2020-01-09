@@ -1,0 +1,24 @@
+<div class="coupon-list-view-popup" data-bind="mageInit: {
+    'Magento_Ui/js/modal/modal':{
+        'type': 'popup',
+        'title': 'Available Coupons',
+        'trigger': '[data-trigger=open-coupon-list]',
+        'responsive': true,
+        'buttons': []
+    }}">
+    <div id="coupon-list" data-bind="scope:'coupon-list'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app":  <?= /* @escapeNotVerified */ $block->getJsLayout(); ?>
+            },
+            "#coupon-list": {
+                "Ambab_CouponList/js/coupon": {
+                    "couponList": <?= /* @escapeNotVerified */ $block->getCouponList(); ?>
+                }
+            }
+        }
+    </script>
+</div>

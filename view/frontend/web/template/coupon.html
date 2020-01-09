@@ -1,0 +1,34 @@
+<div class="coupon-list">
+    <!-- ko if: itemList() -->
+        <div class="list" data-bind="foreach: itemList">
+            <div class="coupon-code">
+                <span class="code">
+                    <!-- ko text: $data.coupon --><!-- /ko -->
+                </span>
+            </div>
+            <div class="coupon-name">
+                <span class="name">
+                    <!-- ko text: $data.name --><!-- /ko -->
+                </span>
+            </div>
+            <div class="coupon-description">
+                <p class="description">
+                    <!-- ko text: $data.description --><!-- /ko -->
+                </p>
+            </div>
+            <div class="actions primary">
+                <button class="action action-apply" type="button" data-bind="value: $t('Apply'), click: $parent.applycoupon">
+                    <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                </button>
+            </div>
+        </div>
+    <!-- /ko -->
+
+    <!-- ko ifnot: itemList() -->
+        <div class="no-items">
+            <span class="no-items">
+                <!-- ko text: 'No Coupon codes avilable!' --><!-- /ko -->
+            </span>
+        </div>
+    <!-- /ko -->
+</div>
