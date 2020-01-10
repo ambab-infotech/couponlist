@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Ambab\CouponList\Api\GuestCouponListInterface" type="Ambab\CouponList\Model\GuestCart\GuestCouponList" />
-    <preference for="Ambab\CouponList\Api\CouponListInterface" type="Ambab\CouponList\Model\CouponList" />
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Ambab\CouponList\Api\GuestCouponListInterface" type="Ambab\CouponList\Model\GuestCart\GuestCouponList" />
+	<preference for="Ambab\CouponList\Api\CouponListInterface" type="Ambab\CouponList\Model\CouponList" />
 </config>

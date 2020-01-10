@@ -19,10 +19,11 @@ define([
     }
 
     isApplied = ko.observable(couponCode() != null);
+    itemList = ko.observableArray(window.checkoutConfig.couponList);
 
     return Component.extend({
         defaults: {
-            template: 'Ambab_CouponList/coupon'
+            template: 'Ambab_CouponList/coupon/list'
         },
          
         itemList:itemList,
@@ -31,18 +32,6 @@ define([
 
         initialize: function() {
             this._super();
-            this.populateCouponList();
-        },
-
-        populateCouponList: function() {
-            var self =  this;
-            if(this.itemList().length <1) {
-                this.itemList(this.getcouponList());
-            }
-        },
-
-        getcouponList: function() {
-            return this.couponList;
         },
 
         applycoupon: function(coupon) {

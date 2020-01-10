@@ -1,24 +1,38 @@
-<div class="coupon-list-view-popup" data-bind="mageInit: {
-    'Magento_Ui/js/modal/modal':{
-        'type': 'popup',
-        'title': 'Available Coupons',
-        'trigger': '[data-trigger=open-coupon-list]',
-        'responsive': true,
-        'buttons': []
-    }}">
-    <div id="coupon-list" data-bind="scope:'coupon-list'">
-        <!-- ko template: getTemplate() --><!-- /ko -->
-    </div>
-    <script type="text/x-magento-init">
-        {
-            "*": {
-                "Magento_Ui/js/core/app":  <?= /* @escapeNotVerified */ $block->getJsLayout(); ?>
-            },
-            "#coupon-list": {
-                "Ambab_CouponList/js/coupon": {
-                    "couponList": <?= /* @escapeNotVerified */ $block->getCouponList(); ?>
-                }
-            }
-        }
-    </script>
+<?php
+/**
+ * Ambab CouponList Extension.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ambab
+ *
+ * @copyright   Copyright (c) 2019 Ambab (https://www.ambab.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+
+/** @var $block \Ambab\CouponList\Block\Cart\CouponList */
+?>
+<div id="coupon-link" data-bind="scope:'coupon-link'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
 </div>
+
+<div id="coupon-list" data-bind="scope:'coupon-list'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout(); ?>
+        }
+    }
+</script>
+

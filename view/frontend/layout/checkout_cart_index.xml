@@ -3,15 +3,23 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
     	<referenceContainer name="cart.discount">
-            <block class="Ambab\CouponList\Block\Cart\CouponList" name="checkout.cart.coupon.list" as="coupon.list" template="Ambab_CouponList::cart/coupon_link.phtml" after="checkout.cart.coupon" ifconfig="couponlist/general/enabled"/>
-
-            <block class="Ambab\CouponList\Block\Cart\CouponList" name="coupon.list.popup" template="Ambab_CouponList::cart/coupon_list.phtml" ifconfig="couponlist/general/enabled">
+            <block class="Magento\Checkout\Block\Cart\Coupon" name="coupon.list.popup" template="Ambab_CouponList::cart/coupon_list.phtml" ifconfig="couponlist/general/enabled" after="checkout.cart.coupon">
             	<arguments>
                     <argument name="jsLayout" xsi:type="array">
                         <item name="components" xsi:type="array">
-                        	<item name="coupon-list" xsi:type="array">
-                        		<item name="component" xsi:type="string">Ambab_CouponList/js/coupon</item>	
-                        	</item>
+                            <item name="coupon-link" xsi:type="array"> 
+                                <item name="component" xsi:type="string">Ambab_CouponList/js/coupon/link</item>
+                            </item>
+                            <item name="coupon-list" xsi:type="array">
+                                <item name="component" xsi:type="string">Ambab_CouponList/js/coupon/list</item>
+                                <item name="children" xsi:type="array">
+                                    <item name="errors" xsi:type="array">
+                                        <item name="sortOrder" xsi:type="string">0</item>
+                                        <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount-messages</item>
+                                        <item name="displayArea" xsi:type="string">messages</item>
+                                    </item>
+                                </item>
+                            </item>
                         </item>
                     </argument>
                 </arguments>
