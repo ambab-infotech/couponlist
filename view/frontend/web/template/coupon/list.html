@@ -12,7 +12,7 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>
-        <!-- ko if: itemList() -->
+        <!-- ko if: itemList().length -->
             <div class="list" data-bind="foreach: itemList">
                 <div class="coupon-code">
                     <span class="code">
@@ -37,7 +37,7 @@
             </div>
         <!-- /ko -->
 
-        <!-- ko ifnot: itemList() -->
+        <!-- ko ifnot: itemList().length -->
             <div class="no-items">
                 <span class="no-items">
                     <!-- ko text: 'No Coupon codes avilable!' --><!-- /ko -->

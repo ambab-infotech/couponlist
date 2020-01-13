@@ -35,13 +35,20 @@ class ConfigProvider implements ConfigProviderInterface
     protected $_checkoutSession;
 
     /**
+     * @var \Ambab\CouponList\Helper\Data
+     */
+    protected $_helperData;
+
+    /**
      * @codeCoverageIgnore
      */
     public function __construct(
         \Ambab\CouponList\Model\Rule\Collection $ruleCollection,
+        \Ambab\CouponList\Helper\Data $helperData,
         \Magento\Checkout\Model\Session $checkoutSession
     ) {
         $this->_ruleCollection = $ruleCollection;
+        $this->_helperData = $helperData;
         $this->_checkoutSession = $checkoutSession;
     }
 
@@ -50,6 +57,10 @@ class ConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
+        if (!$this->_helperData->isEnabled()) {
+            return [];
+        }
+
         $couponList['couponList'] = $this->getListArray();
 
         return $couponList;
