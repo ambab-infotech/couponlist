@@ -30,9 +30,16 @@
                     </p>
                 </div>
                 <div class="actions primary">
-                    <button class="action action-apply" type="button" data-bind="value: $t('Apply'), click: $parent.applycoupon">
-                        <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
-                    </button>
+                    <!-- ko ifnot: $parent.couponCode() == $data.coupon -->
+                        <button class="action action-apply" type="button" data-bind="value: $t('Apply'), click: $parent.applycoupon">
+                            <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                        </button>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.couponCode() == $data.coupon -->
+                        <button class="action action-cancel" type="button" data-bind="value: $t('Cancel'), click: $parent.cancelcoupon">
+                            <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
+                        </button>
+                    <!-- /ko -->
                 </div>
             </div>
         <!-- /ko -->

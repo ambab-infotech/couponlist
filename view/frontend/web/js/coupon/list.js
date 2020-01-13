@@ -35,7 +35,8 @@ define([
         },
 
         applycoupon: function(coupon) {
-            setCouponCodeAction(coupon.coupon, isApplied);
+            couponCode(coupon.coupon);
+            setCouponCodeAction(couponCode(), isApplied);
             setShippingAction([]);
         },
 
