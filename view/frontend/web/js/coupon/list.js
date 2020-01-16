@@ -12,6 +12,7 @@ define([
     var itemList = ko.observableArray(),
         totals = quote.getTotals(),
         couponCode = ko.observable(null),
+        readMoreElement = ko.observable(null),
         isApplied;
 
     if (totals()) {
@@ -29,6 +30,7 @@ define([
         itemList:itemList,
         couponCode: couponCode,
         isApplied: isApplied,
+        readMoreElement: readMoreElement,
 
         initialize: function() {
             this._super();
@@ -44,6 +46,14 @@ define([
             couponCode('');
             cancelCouponAction(isApplied);
             setShippingAction([]);
+        },
+
+        readMoreToggle: function(coupon) {
+            readMoreElement(coupon.coupon);
+        },
+
+        readLessToggle: function() {
+            readMoreElement(null);
         }
         
     });

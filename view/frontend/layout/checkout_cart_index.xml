@@ -2,7 +2,7 @@
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-    	<referenceContainer name="cart.discount">
+    	<referenceBlock name="checkout.cart.coupon">
             <block class="Magento\Checkout\Block\Cart\Coupon" name="coupon.list.popup" template="Ambab_CouponList::cart/coupon_list.phtml" ifconfig="couponlist/general/enabled" after="checkout.cart.coupon">
             	<arguments>
                     <argument name="jsLayout" xsi:type="array">
@@ -24,6 +24,7 @@
                     </argument>
                 </arguments>
             </block>
-        </referenceContainer>
+        </referenceBlock>
+        <move element="coupon.list.popup" destination="cart.discount" />
     </body>
 </page>

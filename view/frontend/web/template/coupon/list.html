@@ -4,6 +4,8 @@
         'title': 'Available Coupons',
         'trigger': '[data-trigger=open-coupon-list]',
         'responsive': true,
+        'innerScroll': true,
+        'modalClass': 'coupon-list-container',
         'buttons': []
     }}">
     <div id="coupon-list" class="coupon-list">
@@ -14,20 +16,28 @@
         </div>
         <!-- ko if: itemList().length -->
             <div class="list" data-bind="foreach: itemList">
+                <div class="coupon-wrapper">
                 <div class="coupon-code">
                     <span class="code">
                         <!-- ko text: $data.coupon --><!-- /ko -->
                     </span>
                 </div>
-                <div class="coupon-name">
-                    <span class="name">
-                        <!-- ko text: $data.name --><!-- /ko -->
-                    </span>
-                </div>
-                <div class="coupon-description">
-                    <p class="description">
-                        <!-- ko text: $data.description --><!-- /ko -->
-                    </p>
+                <div class="coupon-details">
+                    <div class="coupon-name">
+                        <span class="name">
+                            <!-- ko text: $data.name --><!-- /ko -->
+                        </span>
+                    </div>
+                    <div class="coupon-description">
+                        <div class="description" data-bind="css: {'read-more-description white-patch': $parent.readMoreElement() != $data.coupon }">
+                            <p>
+                                <!-- ko text: $data.description --><!-- /ko -->
+                            </p>
+                        </div>
+                        <a href="javascript:void(0);" class="read-more" data-bind="click: $parent.readMoreElement() != $data.coupon ? $parent.readMoreToggle : $parent.readLessToggle">
+                            <span data-bind="text: $parent.readMoreElement() != $data.coupon ? $t('Read More') : $t('Read Less')" />
+                        </a>
+                    </div>
                 </div>
                 <div class="actions primary">
                     <!-- ko ifnot: $parent.couponCode() == $data.coupon -->
@@ -40,6 +50,7 @@
                             <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
                         </button>
                     <!-- /ko -->
+                </div>
                 </div>
             </div>
         <!-- /ko -->

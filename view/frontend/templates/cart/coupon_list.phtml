@@ -20,12 +20,14 @@
 
 /** @var $block \Magento\Checkout\Block\Cart\Coupon */
 ?>
-<div id="coupon-link" data-bind="scope:'coupon-link'">
-    <!-- ko template: getTemplate() --><!-- /ko -->
-</div>
+<div id="checkout" class="coupon-list-container">
+    <div id="cart-coupon-link" data-bind="scope:'coupon-link'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
 
-<div id="coupon-list" data-bind="scope:'coupon-list'">
-    <!-- ko template: getTemplate() --><!-- /ko -->
+    <div id="cart-coupon-list" data-bind="scope:'coupon-list'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
 </div>
 
 <script type="text/x-magento-init">
@@ -35,4 +37,3 @@
         }
     }
 </script>
-
