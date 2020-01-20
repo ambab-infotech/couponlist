@@ -29,14 +29,16 @@
                         </span>
                     </div>
                     <div class="coupon-description">
-                        <div class="description" data-bind="css: {'read-more-description white-patch': $parent.readMoreElement() != $data.coupon }">
+                        <div class="description" data-bind="css: {'read-more-description white-patch': $parent.readMoreElement() != $data.coupon && $data.description.length > 150 }">
                             <p>
                                 <!-- ko text: $data.description --><!-- /ko -->
                             </p>
                         </div>
+                        <!-- ko if: $data.description.length > 150 -->
                         <a href="javascript:void(0);" class="read-more" data-bind="click: $parent.readMoreElement() != $data.coupon ? $parent.readMoreToggle : $parent.readLessToggle">
                             <span data-bind="text: $parent.readMoreElement() != $data.coupon ? $t('Read More') : $t('Read Less')" />
                         </a>
+                        <!-- /ko -->
                     </div>
                 </div>
                 <div class="actions primary">
