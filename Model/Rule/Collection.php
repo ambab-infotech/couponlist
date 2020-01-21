@@ -78,15 +78,21 @@ class Collection
         $rules = $this->getRulesCollection();
         $ruleArray = [];
 
+        $items = $quote->getAllVisibleItems();
+
         foreach ($rules as $rule) {
             $validate = $this->_utility->canProcessRule($rule, $address);
 
-            if ($validate) {
-                $ruleArray[] = [
-                    'name' => $rule->getName(),
-                    'description' => $rule->getDescription(),
-                    'coupon' => $rule->getCode(),
-                ];
+            foreach ($items as $item) {
+                if ($validate &&
+                    $rule->getActions()->validate($item) &&
+                    $rule->getConditions()->validate($item)) {
+                    $ruleArray[] = [
+                        'name' => $rule->getName(),
+                        'description' => $rule->getDescription(),
+                        'coupon' => $rule->getCode(),
+                    ];
+                }
             }
         }
 
