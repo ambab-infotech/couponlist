@@ -42,7 +42,9 @@ define([
             discount().couponCode(coupon.coupon);
             discount().apply();
             couponCode(coupon.coupon);
-            setShippingAction([]);
+            if(totals()['shipping_amount']>0) {
+                setShippingAction([]);
+            }
             self.updateCartDiscountBlock();  
         },
 
@@ -50,7 +52,9 @@ define([
             discount().couponCode('');
             discount().cancel();
             couponCode('');
-            setShippingAction([]);
+            if(totals()['shipping_amount']>0) {
+                setShippingAction([]);
+            }
             self.updateCartDiscountBlock();
         },
 
