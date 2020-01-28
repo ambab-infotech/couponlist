@@ -42,12 +42,12 @@
                     </div>
                 </div>
                 <div class="actions primary">
-                    <!-- ko ifnot: $parent.couponCode() == $data.coupon -->
+                    <!-- ko ifnot: ($parent.couponCode() != null ? $parent.couponCode().toLowerCase() : $parent.couponCode()) == ($data.coupon).toLowerCase() -->
                         <button class="action action-apply" type="button" data-bind="value: $t('Apply'), click: $parent.applycoupon">
                             <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
                         </button>
                     <!-- /ko -->
-                    <!-- ko if: $parent.couponCode() == $data.coupon -->
+                    <!-- ko if: ($parent.couponCode() != null ? $parent.couponCode().toLowerCase() : $parent.couponCode()) == ($data.coupon).toLowerCase() -->
                         <button class="action action-cancel" type="button" data-bind="value: $t('Cancel'), click: $parent.cancelcoupon">
                             <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
                         </button>

@@ -46,11 +46,11 @@ class CheckoutProcessor
      */
     public function afterProcess(\Magento\Checkout\Block\Checkout\LayoutProcessor $processor, $jsLayout)
     {
-        $paymentConfig = &$jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment'];
+        $paymentConfig = &$jsLayout['components']['checkout']['children']['steps']['children']['billing-step'];
 
         if (!$this->helperData->isEnabled()) {
-            unset($paymentConfig['children']['afterMethods']['children']['coupon-link']);
-            unset($paymentConfig['children']['afterMethods']['children']['coupon-list']);
+            unset($paymentConfig['children']['payment']['children']['afterMethods']['children']['coupon-link']);
+            unset($paymentConfig['children']['payment']['children']['afterMethods']['children']['coupon-list']);
         }
 
         return $jsLayout;

@@ -26,7 +26,7 @@ use Magento\Store\Model\ScopeInterface;
 class Data extends AbstractHelper
 {
     const MODULE_NAME = 'couponlist/';
-    const XML_PATH_IS_ENABLED = 'general/enabled';
+    const XML_PATH_IS_ENABLED = 'general/enable';
 
     /**
      * @var \Magento\Customer\Model\Session
