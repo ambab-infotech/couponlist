@@ -42,6 +42,19 @@ define([
         initialize: function() {
             self = this;
             this._super();
+            
+            cancelCouponAction.registerSuccessCallback(function(){
+                couponCode('');
+            });
+
+            setCouponCodeAction.registerSuccessCallback(function(){
+                couponCode(discount().couponCode());
+            });
+
+            setCouponCodeAction.registerFailCallback(function(){
+                couponCode('');
+            });
+
         },
 
         applycoupon: function(coupon) {
