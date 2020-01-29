@@ -42,19 +42,14 @@ define([
         initialize: function() {
             self = this;
             this._super();
-            
-            cancelCouponAction.registerSuccessCallback(function(){
-                couponCode('');
-            });
 
-            setCouponCodeAction.registerSuccessCallback(function(){
-                couponCode(discount().couponCode());
+            discount().isApplied.subscribe(function() {
+                if(discount().couponCode() != '') {
+                    couponCode(discount().couponCode());
+                } else {
+                    couponCode('');
+                }
             });
-
-            setCouponCodeAction.registerFailCallback(function(){
-                couponCode('');
-            });
-
         },
 
         applycoupon: function(coupon) {
