@@ -70,7 +70,12 @@ Go to Admin -> Stores -> Configuration -> Ambab -> Coupon List to configure Coup
 
 Option to enable/disable module. 
 
+## Contribute
 
-# Support
+Feel free to fork and contribute to this module by creating a PR to master branch (https://github.com/ambab-infotech/couponlist).
 
-Please feel free to reach out at tech.support@ambab.com
+## Support
+
+For issues please raise here https://github.com/ambab-infotech/couponlist/issues
+
+In case of additional support feel free to reach out at tech.support@ambab.com
